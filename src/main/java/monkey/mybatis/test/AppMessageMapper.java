@@ -6,6 +6,7 @@ import java.util.List;
 
 @Mapper
 public interface AppMessageMapper {
+
     int deleteByPrimaryKey(String id);
 
     int insert(AppMessage record);

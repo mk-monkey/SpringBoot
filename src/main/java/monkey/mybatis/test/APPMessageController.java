@@ -1,13 +1,15 @@
 package monkey.mybatis.test;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/appmessage")
+@RequestMapping("/mybatis")
 public class APPMessageController {
 
+    @Autowired
     private AppMessageService appMessageService;
 
     @RequestMapping("/getThree")

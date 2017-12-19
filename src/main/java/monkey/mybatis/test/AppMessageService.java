@@ -1,10 +1,12 @@
 package monkey.mybatis.test;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class AppMessageService implements IAppMessageService {
     @Autowired
     private AppMessageMapper appMessageMapper;
@@ -13,13 +15,13 @@ public class AppMessageService implements IAppMessageService {
     public List<AppMessage> getMessage() {
         List<AppMessage> list = new ArrayList<>();
         list.add(appMessageMapper.selectByPrimaryKey("xtt"));
-        //list = mapper.selectAll();
+//        list = mapper.selectAll();
         return list;
     }
 
     @Override
     public List<AppMessage> getAllMessage() {
-        List<AppMessage> list = new ArrayList<>();
+        List<AppMessage> list = new ArrayList<AppMessage>();
         list = appMessageMapper.selectAll();
         return list;
     }
