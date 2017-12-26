@@ -24,6 +24,10 @@ public class DemoApplicationTests {
 
     }
 
+    @Test
+    public void run() {
+        System.out.println("hello world");
+    }
 
 
 }
