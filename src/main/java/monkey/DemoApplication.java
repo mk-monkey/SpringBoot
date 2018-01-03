@@ -2,14 +2,16 @@ package monkey;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ImportResource;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 
 @SpringBootApplication
 //@ImportResource(locations = {"classpath:spring-mvc.xml"})
+@ServletComponentScan
+
 public class DemoApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
 
 }
