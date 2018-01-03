@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 //如果返回的为json数据或其它对象，添加该注解
 //@ResponseBody
-@ControllerAdvice
+@ControllerAdvice(basePackages = {"monkey.demo"}) //可以单独出来某个包所有的controller
 public class GlobalDefaultExceptionHandler {
 
 
