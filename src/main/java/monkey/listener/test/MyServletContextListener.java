@@ -13,6 +13,7 @@ public class MyServletContextListener implements ServletContextListener {
         System.out.println(sce.getServletContext().getServerInfo());
     }
 
+
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
         System.out.println("ServletContex销毁");
