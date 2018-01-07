@@ -14,19 +14,19 @@
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
         select
         <include refid="Base_Column_List"/>
-        from appuser_message
+        from mk_message
         where id = #{id,jdbcType=VARCHAR}
     </select>
 
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-        delete from appuser_message
+        delete from mk_message
         where id = #{id,jdbcType=VARCHAR}
     </delete>
 
 
     <insert id="insert" parameterType="monkey.mybatis.test.AppMessage">
-        insert into appuser_message (id, message, senddate
+        insert into mk_message (id, message, senddate
         )
         values (#{id,jdbcType=VARCHAR}, #{message,jdbcType=VARCHAR}, #{senddate,jdbcType=TIMESTAMP}
         )
@@ -34,7 +34,7 @@
 
 
     <insert id="insertSelective" parameterType="monkey.mybatis.test.AppMessage">
-        insert into appuser_message
+        insert into mk_message
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
                 id,
@@ -59,7 +59,7 @@
         </trim>
     </insert>
     <update id="updateByPrimaryKeySelective" parameterType="monkey.mybatis.test.AppMessage">
-        update appuser_message
+        update mk_message
         <set>
             <if test="message != null">
                 message = #{message,jdbcType=VARCHAR},
@@ -71,7 +71,7 @@
         where id = #{id,jdbcType=VARCHAR}
     </update>
     <update id="updateByPrimaryKey" parameterType="monkey.mybatis.test.AppMessage">
-        update appuser_message
+        update mk_message
         set message = #{message,jdbcType=VARCHAR},
         senddate = #{senddate,jdbcType=TIMESTAMP}
         where id = #{id,jdbcType=VARCHAR}
@@ -80,7 +80,7 @@
     <select id="selectAll" resultMap="BaseResultMap">
         select
         id, message, senddate
-        from appuser_message
+        from mk_message
         order by senddate asc
     </select>
 
@@ -88,7 +88,7 @@
         select
         id, message, senddate
         from
-        appuser_message
+        mk_message
         where id = #{id,jdbcType=VARCHAR}
         order by senddate asc
     </select>
