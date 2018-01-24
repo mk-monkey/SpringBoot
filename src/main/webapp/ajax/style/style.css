@@ -1,0 +1,14 @@
+﻿/*
+ * @Author: M_King 
+ * @Date: 2017-10-26 20:24:24 
+ * @Last Modified by: M_King
+ * @Last Modified time: 2018-01-16 13:26:41
+ */
+body{ background: #F1F2F7;}
+.padding{ padding: 15px;}
+.margin{ margin: 15px 0;}
+.center-box{ display: flex; justify-content: center; align-items: center;}
+#wrap{ position: relative; overflow: hidden; color: #333;}
+#list{ overflow: hidden;}
+#list .item{ float: left; width: 200px; padding: 5px;}
+#list .item img{ width: 200px; height: 200px;}

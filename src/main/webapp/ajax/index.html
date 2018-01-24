@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <title>Ajax</title>
+    <link rel="stylesheet" type="text/css" href="style/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style/base.css" />
+    <link rel="stylesheet" type="text/css" href="style/style.css" />
+    <!-- template version: 17.0622.1 by M_King -->
+</head>
+
+<body>
+    <!-- wrap -->
+    <div id="wrap" class="inner padding">
+        <!-- body -->
+        <div class="body">
+            <div id="list">
+                <img id="img" src="" />
+            </div>
+        </div>
+        <!-- body end -->
+    </div>
+    <!-- wrap end -->
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+    <script src="js/base.js"></script>
+    <script src="js/web.js"></script>
+
+    <script>
+        $(function() {
+            // 获取数据
+            getAjaxData('http://127.0.0.1:8080/wxpay/', 'GET').then(res => {
+                console.log('get data res', res);
+                var code_url = res.code_url;
+                console.log('code_url',code_url);
+                $('#img').attr('src', code_url);
+            });
+        });
+
+        // 创建列表
+        function createList(data) {
+            // 创建item
+            function createItem(data) {
+                var item = document.createElement('div');
+                item.className = 'item';
+                item.innerHTML = '<img src="' + data.avatar + '">';
+                return item;
+            }
+        }
+
+
+        // 请求ajax数据
+        function getAjaxData(url, type = 'GET', data = {}) {
+            return new Promise((resolve, reject) => {
+                // 判断是否有url
+                if (!url) {
+                    reject(new Error('getAjaxData: url is required.'));
+                    console.log("getAjaxData: url is required.");
+                    return;
+                }
+                // 开始请求ajax数据
+                $.ajax({
+                    url,
+                    type,
+                    data,
+                    success: (res) => {
+                        console.log(res);
+                        console.log("res");
+                        resolve(res);
+                    },
+                    error: (err) => {
+                        reject(err);
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>

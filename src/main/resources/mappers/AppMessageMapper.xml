@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="monkey.mybatis.test.AppMessageMapper">
+<mapper namespace="com.monkey.mybatis.test.AppMessageMapper">
 
-    <resultMap id="BaseResultMap" type="monkey.mybatis.test.AppMessage">
+    <resultMap id="BaseResultMap" type="com.monkey.mybatis.test.AppMessage">
         <id column="id" property="id" jdbcType="VARCHAR"/>
         <result column="message" property="message" jdbcType="VARCHAR"/>
         <result column="senddate" property="senddate" jdbcType="TIMESTAMP"/>
@@ -25,7 +25,7 @@
     </delete>
 
 
-    <insert id="insert" parameterType="monkey.mybatis.test.AppMessage">
+    <insert id="insert" parameterType="com.monkey.mybatis.test.AppMessage">
         insert into mk_message (id, message, senddate
         )
         values (#{id,jdbcType=VARCHAR}, #{message,jdbcType=VARCHAR}, #{senddate,jdbcType=TIMESTAMP}
@@ -33,7 +33,7 @@
     </insert>
 
 
-    <insert id="insertSelective" parameterType="monkey.mybatis.test.AppMessage">
+    <insert id="insertSelective" parameterType="com.monkey.mybatis.test.AppMessage">
         insert into mk_message
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -58,7 +58,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="monkey.mybatis.test.AppMessage">
+    <update id="updateByPrimaryKeySelective" parameterType="com.monkey.mybatis.test.AppMessage">
         update mk_message
         <set>
             <if test="message != null">
@@ -70,7 +70,7 @@
         </set>
         where id = #{id,jdbcType=VARCHAR}
     </update>
-    <update id="updateByPrimaryKey" parameterType="monkey.mybatis.test.AppMessage">
+    <update id="updateByPrimaryKey" parameterType="com.monkey.mybatis.test.AppMessage">
         update mk_message
         set message = #{message,jdbcType=VARCHAR},
         senddate = #{senddate,jdbcType=TIMESTAMP}
